@@ -20,8 +20,9 @@ function onSubmit(event) {
   event.preventDefault();
   let position = 0;
   let Delay = 0;
-  for (let i = 1; i < form.amount.value; i += 1){
-submitBtn.disabled = true;
+  for (let i = 0; i < form.amount.value; i += 1){
+//  submitBtn.disabled = false;
+//    submitBtn.removeAttribute('disabled');
     position += 1;
     Delay = Number(form.delay.value) + form.step.value * i;
     createPromise(position, Delay)
