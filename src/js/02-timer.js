@@ -27,18 +27,17 @@ const options = {
     if (selectedDates[0] > Date.now()) {
       startBtn.removeAttribute('disabled');
     } else {
-      startBtn.setAttribute('disabled', 'disabled');
+      startBtn.setAttribute('disabled', 'disabled')
     }
   },
 };
-
 flatpickr(input, options);
 
 startBtn.addEventListener('click', onClick);
 
 function onClick(event) {
   startBtn.disabled = true;
-  const intervalId = setInterval(() => {
+  const intervalid = setInterval(() => {
     const targetDate = new Date(input.value);
     const timer = targetDate - Date.now();
     const convertTimer = convertMs(timer);
@@ -47,10 +46,9 @@ function onClick(event) {
     minutes.textContent = addLeadingZero(convertTimer.minutes);
     seconds.textContent = addLeadingZero(convertTimer.seconds);
     if (timer <= 1000) {
-      clearInterval(intervalId);
+      clearInterval(intervalid)
     }
   }, 1000);
-
   startBtn.setAttribute('disabled', 'disabled');
   input.setAttribute('disabled', 'disabled');
 }
